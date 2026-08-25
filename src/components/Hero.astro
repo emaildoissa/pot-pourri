@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import { homeContent } from "../config/home";
+import { siteConfig } from "../config/site";
+import heroPoster from "../assets/potpourri_hero.png";
+---
+
+<section id="top" class="hero" aria-labelledby="hero-title">
+  <!-- Looping video background with fallbacks -->
+  <video
+    class="hero-video"
+    autoplay
+    loop
+    muted
+    playsinline
+    poster={heroPoster.src}
+    aria-hidden="true"
+  >
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-pouring-red-wine-into-a-glass-in-a-restaurant-41487-large.mp4" type="video/mp4" />
+    <Image
+      class="media-fill"
+      src={heroPoster}
+      alt="Ambiente intimista Pot. Pourri Pizzaria com vinho tinto, iluminação de velas e pizza artesanal em prato de cerâmica"
+      width={1920}
+      height={1080}
+      quality={90}
+      loading="eager"
+    />
+  </video>
+
+  <!-- Dark ambient gradient overlays -->
+  <div class="overlay" style="background: var(--grad-vignette);"></div>
+  <div class="overlay" style="background: var(--grad-veil);"></div>
+
+  <div class="hero-content">
+    <div class="hero-grid">
+      <div class="hero-heading">
+        <p class="label-eyebrow reveal" style="color: var(--gold); font-weight: 600;">
+          <span class="ember-dot" aria-hidden="true" style="margin-right: 0.5rem;"></span>
+          {homeContent.hero.eyebrow}
+        </p>
+        <h1 id="hero-title" class="hero-title display reveal reveal-delay-1">
+          {homeContent.hero.title[0]}<br />
+          <span class="display-italic" style="color: var(--gold-hover);">{homeContent.hero.title[1]}</span><br />
+          {homeContent.hero.title[2]}
+        </h1>
+      </div>
+
+      <div class="hero-copy reveal reveal-delay-2">
+        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--foreground);">
+          {homeContent.hero.subheadline}
+        </p>
+        <div class="hero-actions" style="margin-top: 0.5rem;">
+          <a
+            class="button-gold"
+            href={siteConfig.whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Reservar uma mesa no Pot. Pourri via WhatsApp"
+          >
+            {homeContent.hero.primaryCta}
+          </a>
+          <a
+            class="button-outline"
+            href="#conceito"
+            aria-label="Conhecer a experiência Pot. Pourri"
+          >
+            {homeContent.hero.secondaryCta}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import { homeContent } from "../config/home";
+import jazzImage from "../assets/potpourri_jazz.png";
+import pelegosImage from "../assets/potpourri_pelegos.png";
+---
+
+<section id="ambiente" class="section surface-section">
+  <div class="container section-grid">
+    <div class="section-kicker">
+      <p class="label-eyebrow reveal" style="color: var(--gold);">{homeContent.ambiance.eyebrow}</p>
+    </div>
+
+    <div style="grid-column: 4 / span 9;">
+      <h2 class="section-heading display reveal">
+        {homeContent.ambiance.heading}
+      </h2>
+      <p class="reveal reveal-delay-1" style="font-size: 1.15rem; color: var(--muted-foreground); margin-top: 0.75rem;">
+        {homeContent.ambiance.subheading}
+      </p>
+    </div>
+
+    <!-- Block A: The Soundtrack (Jazz) -->
+    <div class="fire-block reveal" style="margin-top: 3rem;">
+      <div class="fire-media image-frame aspect-16-10" style="border: 1px solid var(--border); border-radius: 2px;">
+        <Image
+          src={jazzImage}
+          alt={homeContent.ambiance.blocks[0].imageAlt}
+          width={1400}
+          height={875}
+          loading="lazy"
+        />
+      </div>
+      <div class="quote-block" style="align-self: center;">
+        <span class="badge-tag" style="margin-bottom: 0.75rem;">{homeContent.ambiance.blocks[0].badge}</span>
+        <h3 class="display" style="font-size: 2.2rem; color: var(--cream); margin: 0.5rem 0 1rem;">
+          {homeContent.ambiance.blocks[0].title}
+        </h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--muted-foreground); margin: 0;">
+          {homeContent.ambiance.blocks[0].body}
+        </p>
+      </div>
+    </div>
+
+    <!-- Block B: The Comfort (Pelegos) -->
+    <div class="fire-block reveal" style="margin-top: 3.5rem;">
+      <div class="quote-block" style="grid-column: 1 / span 5; align-self: center;">
+        <span class="badge-tag" style="margin-bottom: 0.75rem;">{homeContent.ambiance.blocks[1].badge}</span>
+        <h3 class="display" style="font-size: 2.2rem; color: var(--cream); margin: 0.5rem 0 1rem;">
+          {homeContent.ambiance.blocks[1].title}
+        </h3>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--muted-foreground); margin: 0;">
+          {homeContent.ambiance.blocks[1].body}
+        </p>
+      </div>
+      <div class="fire-media image-frame aspect-16-10" style="grid-column: 6 / span 7; border: 1px solid var(--border); border-radius: 2px;">
+        <Image
+          src={pelegosImage}
+          alt={homeContent.ambiance.blocks[1].imageAlt}
+          width={1400}
+          height={875}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>

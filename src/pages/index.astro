@@ -1,11 +1,84 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import ConceptSection from "../components/ConceptSection.astro";
+import AmbianceSection from "../components/AmbianceSection.astro";
+import InteractiveMenu from "../components/InteractiveMenu.astro";
+import SocialProof from "../components/SocialProof.astro";
+import Footer from "../components/Footer.astro";
+import { homeContent } from "../config/home";
+import { siteConfig } from "../config/site";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const siteUrl = Astro.site ?? new URL("http://localhost:4321");
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  name: siteConfig.fullName,
+  alternateName: siteConfig.name,
+  description: siteConfig.description,
+  url: new URL(Astro.url.pathname, siteUrl).href,
+  image: new URL(siteConfig.defaultImage, siteUrl).href,
+  telephone: siteConfig.phone,
+  email: siteConfig.email,
+  servesCuisine: siteConfig.restaurant.cuisine,
+  priceRange: siteConfig.restaurant.priceRange,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.address.street,
+    addressLocality: siteConfig.address.locality,
+    addressRegion: siteConfig.address.region,
+    postalCode: siteConfig.address.postalCode,
+    addressCountry: siteConfig.address.country,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: siteConfig.hours.schema.dayOfWeek,
+      opens: siteConfig.hours.schema.opens,
+      closes: siteConfig.hours.schema.closes,
+    },
+  ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "142",
+  },
+};
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout image={siteConfig.defaultImage} structuredData={structuredData}>
+  <Nav />
+
+  <main id="main">
+    <Hero />
+
+    <!-- Ticker / Marquee Section -->
+    <section class="marquee" aria-label="Valores Pot. Pourri">
+      <div class="marquee-track">
+        {[...homeContent.marquee, ...homeContent.marquee].map((item) => (
+          <span>
+            {item}
+            <b aria-hidden="true">✦</b>
+          </span>
+        ))}
+      </div>
+    </section>
+
+    <!-- SECTION 1: Concept & USP -->
+    <ConceptSection />
+
+    <!-- SECTION 2: Sensory Ambiance & Culture -->
+    <AmbianceSection />
+
+    <!-- SECTION 3: Interactive Digital Menu -->
+    <InteractiveMenu />
+
+    <!-- SECTION 4: Social Proof -->
+    <SocialProof />
+  </main>
+
+  <!-- FOOTER & ACTION HUB -->
+  <Footer />
+</BaseLayout>

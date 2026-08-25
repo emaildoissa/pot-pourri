@@ -1,0 +1,139 @@
+---
+import { homeContent } from "../config/home";
+import { siteConfig } from "../config/site";
+---
+
+<section id="menu" class="section">
+  <div class="container section-grid">
+    <div class="section-kicker">
+      <p class="label-eyebrow reveal" style="color: var(--gold);">{homeContent.menu.eyebrow}</p>
+    </div>
+
+    <div style="grid-column: 4 / span 9;">
+      <h2 class="section-heading display reveal">
+        {homeContent.menu.heading}
+      </h2>
+      <p class="reveal reveal-delay-1" style="font-size: 1.15rem; color: var(--muted-foreground); margin-top: 0.75rem;">
+        {homeContent.menu.subheading}
+      </p>
+
+      <!-- Tab Buttons Navigation -->
+      <div
+        class="menu-nav-tabs reveal reveal-delay-2"
+        role="tablist"
+        aria-label="Categorias do Menu Digital"
+        style="margin-top: 2rem;"
+      >
+        {homeContent.menu.categories.map((cat, index) => (
+          <button
+            class={`menu-tab-button ${index === 0 ? "is-active" : ""}`}
+            role="tab"
+            aria-selected={index === 0 ? "true" : "false"}
+            aria-controls={`tab-panel-${cat.id}`}
+            id={`tab-button-${cat.id}`}
+            data-tab={cat.id}
+            type="button"
+          >
+            {cat.id === "pizzas" && (
+              <svg style="width: 1.1rem; height: 1.1rem; fill: currentColor;" viewBox="0 0 24 24">
+                <path d="M12 2L2 22h20L12 2zm0 4.5l6.2 12.5H5.8L12 6.5zM12 9a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-3 5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zm6 0a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/>
+              </svg>
+            )}
+            {cat.id === "vinhos" && (
+              <svg style="width: 1.1rem; height: 1.1rem; fill: currentColor;" viewBox="0 0 24 24">
+                <path d="M6 3v6c0 2.97 2.16 5.43 5 5.91V19H8v2h8v-2h-3v-4.09c2.84-.48 5-2.94 5-5.91V3H6zm10 5H8V5h8v3z"/>
+              </svg>
+            )}
+            {cat.id === "drinks" && (
+              <svg style="width: 1.1rem; height: 1.1rem; fill: currentColor;" viewBox="0 0 24 24">
+                <path d="M7.5 7l-2.8-3.5C4.2 2.9 4.6 2 5.4 2h13.2c.8 0 1.2.9.7 1.5L16.5 7H7.5zM11 13.9V19H7v2h10v-2h-4v-5.1l7-8.8c.4-.5.4-1.2 0-1.7-.2-.2-.5-.4-.8-.4H4.8c-.3 0-.6.2-.8.4-.4.5-.4 1.2 0 1.7l7 8.8z"/>
+              </svg>
+            )}
+            <span>{cat.label}</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- Tab Content Panels -->
+      {homeContent.menu.categories.map((cat, catIndex) => (
+        <div
+          id={`tab-panel-${cat.id}`}
+          role="tabpanel"
+          aria-labelledby={`tab-button-${cat.id}`}
+          hidden={catIndex !== 0}
+          class="menu-panel-content reveal"
+        >
+          <p style="color: var(--gold); font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.75rem;">
+            * {cat.description}
+          </p>
+
+          <div class="menu-cards-grid">
+            {cat.items.map((item) => (
+              <div class="menu-item-card">
+                <div>
+                  <div class="menu-item-header">
+                    <h3>{item.title}</h3>
+                    <span class="badge-tag">{item.badge}</span>
+                  </div>
+                  <p class="menu-item-body">{item.description}</p>
+                </div>
+                <div class="menu-item-footer">
+                  <span>✦ {item.pairing}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- Menu CTA Box -->
+      <div
+        class="reveal reveal-delay-3"
+        style="margin-top: 3.5rem; padding: 2.25rem; border: 1px solid var(--gold); background: rgb(24 19 15 / 0.8); border-radius: 2px; text-align: center;"
+      >
+        <p style="font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); margin: 0 0 1.25rem;">
+          "{homeContent.menu.ctaText}"
+        </p>
+        <a
+          class="button-gold"
+          href={siteConfig.whatsappMenuUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Solicitar menu completo atualizado com valores no WhatsApp"
+        >
+          {homeContent.menu.ctaButton}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const tabButtons = document.querySelectorAll(".menu-tab-button");
+    const tabPanels = document.querySelectorAll(".menu-panel-content");
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-tab");
+
+        tabButtons.forEach((b) => {
+          b.classList.remove("is-active");
+          b.setAttribute("aria-selected", "false");
+        });
+
+        tabPanels.forEach((p) => {
+          p.hidden = true;
+        });
+
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-selected", "true");
+
+        const targetPanel = document.getElementById(`tab-panel-${targetId}`);
+        if (targetPanel) {
+          targetPanel.hidden = false;
+        }
+      });
+    });
+  })();
+</script>
