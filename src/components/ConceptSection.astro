@@ -14,22 +14,7 @@ import pizzaImage from "../assets/pizza.jpg";
       {homeContent.concept.heading}
     </h2>
 
-    <figure class="figure-detail reveal">
-      <div class="image-frame aspect-4-5" style="border: 1px solid var(--border); border-radius: 2px;">
-        <Image
-          src={pizzaImage}
-          alt={homeContent.concept.imageAlt}
-          width={1200}
-          height={1500}
-          loading="lazy"
-        />
-      </div>
-      <figcaption class="label-eyebrow" style="margin-top: 1rem; text-transform: uppercase; letter-spacing: 0.15em;">
-        Figura 01 — Pizza Individual em Corte Xadrez & Salada da Casa
-      </figcaption>
-    </figure>
-
-    <div class="text-block reveal reveal-delay-1" style="grid-column: 4 / span 5;">
+    <div class="text-block reveal reveal-delay-1">
       {homeContent.concept.body.map((paragraph) => (
         <p style="margin-bottom: 1.25rem; font-size: 1.1rem; line-height: 1.75; color: var(--foreground);">{paragraph}</p>
       ))}
@@ -43,5 +28,17 @@ import pizzaImage from "../assets/pizza.jpg";
         ))}
       </div>
     </div>
+
+    <figure class="figure-detail reveal">
+      <div class="image-frame aspect-4-5" style="border: 1px solid var(--border); border-radius: 2px;">
+        <Image
+          src={pizzaImage}
+          alt={homeContent.concept.imageAlt}
+          width={1200}
+          height={1500}
+          loading="lazy"
+        />
+      </div>
+    </figure>
   </div>
 </section>

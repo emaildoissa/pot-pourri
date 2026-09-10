@@ -432,10 +432,11 @@ a:hover {
 }
 
 .concept-section .text-block {
-  grid-column: 3 / span 4;
+  grid-column: 1 / span 7;
 }
 
 .concept-section .figure-detail {
+  grid-column: 8 / span 5;
   align-self: start;
   margin-top: -0.5rem;
 }
