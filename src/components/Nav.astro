@@ -4,33 +4,28 @@ import { siteConfig } from "../config/site";
 
 <header class="site-header">
   <div class="nav-grid">
-    <a
-      class="brand"
-      href="#top"
-      aria-label={`${siteConfig.name} - Página inicial`}
-      style="gap: 1rem;"
-    >
+    <a class="brand" href="#top" aria-label={`${siteConfig.name} - Página inicial`}>
+      <!-- Logo para o menu parado (fundo amarelo) -->
       <img
-        src="/logo.png"
+        src="/logo.jpg"
         alt="Logo Pot. Pourri"
-        class="brand-logo"
-        width="120"
-        height="120"
-        style="height: clamp(68px, 8vw, 96px); width: auto; object-fit: contain; border-radius: 6px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));"
+        class="brand-logo brand-logo--default"
+        width="160"
+        height="160"
       />
-      <span style="font-size: 1.35rem; font-weight: 700; letter-spacing: 0.15em;"
-        >{siteConfig.name.toUpperCase()}</span
-      >
+      <!-- Logo para o menu ao rolar (scroll) -->
+      <img
+        src="/xlogo.png"
+        alt="Logo Pot. Pourri Scroll"
+        class="brand-logo brand-logo--scrolled"
+        width="160"
+        height="160"
+      />
+      <span class="brand-title">{siteConfig.name.toUpperCase()}</span>
     </a>
     <nav class="nav-links" aria-label="Navegação principal">
       {siteConfig.nav.map((item) => <a href={item.href}>{item.label}</a>)}
-      <a
-        class="button-gold"
-        style="padding: 0.65rem 1.1rem; font-size: 0.7rem;"
-        href={siteConfig.whatsappUrl}
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a class="nav-cta" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">
         <span class="ember-dot" aria-hidden="true"></span>
         Reservar Mesa
       </a>
@@ -39,9 +34,10 @@ import { siteConfig } from "../config/site";
       <summary class="mobile-nav__toggle">Menu</summary>
       <nav class="mobile-nav__panel" aria-label="Navegação mobile">
         {siteConfig.nav.map((item) => <a href={item.href}>{item.label}</a>)}
-        <a class="button-gold" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer"
-          >Reservar Mesa via WhatsApp</a
-        >
+        <a class="nav-cta" href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer">
+          <span class="ember-dot" aria-hidden="true"></span>
+          Reservar Mesa via WhatsApp
+        </a>
       </nav>
     </details>
   </div>
