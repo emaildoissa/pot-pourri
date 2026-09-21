@@ -7,7 +7,7 @@ export const siteConfig = {
     "Pizzas artesanais de massa finíssima cortada em formato xadrez, acompanhadas de salada fresca da casa, jazz ao vivo e carta de vinhos selecionada no coração de Porto Alegre.",
   locale: "pt_BR",
   defaultImage: "/og.png",
-  gaMeasurementId: import.meta.env.PUBLIC_GA_ID || "",
+  gaMeasurementId: import.meta.env.PUBLIC_GA_ID || "G-M0GHX0892T",
   googleSiteVerification: import.meta.env.PUBLIC_GSC_VERIFICATION || "",
   robots: "index, follow",
   address: {
