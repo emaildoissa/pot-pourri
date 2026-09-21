@@ -8,7 +8,7 @@ export const siteConfig = {
   locale: "pt_BR",
   defaultImage: "/og.png",
   address: {
-    street: "Rua Furriel Luiz Antonio de Vargas, 250",
+    street: "Rua Furriel Luiz Antonio de Vargas, 374",
     neighborhood: "Bela Vista",
     locality: "Porto Alegre",
     region: "RS",

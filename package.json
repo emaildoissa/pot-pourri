@@ -38,6 +38,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
     "@fontsource/cormorant-garamond": "^5.2.11",
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
     "@fontsource/source-sans-3": "^5.2.9",
     "astro": "^7.1.0",
     "sharp": "^0.35.2"

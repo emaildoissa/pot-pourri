@@ -1,9 +1,9 @@
 export const homeContent = {
   hero: {
     eyebrow: "Pizzaria Artesanal & Lounge",
-    title: ["Mais que alta gastronomia.", "Um refúgio intimista", "em Porto Alegre."],
+    title: ["Mais que pizza.", "Um refúgio intimista", "em Porto Alegre."],
     subheadline:
-      "Pizzas artesanais de massa finíssima, jazz ao vivo e uma curadoria de vinhos pensada para os seus momentos mais especiais.",
+      "Pizzas artesanais de massa fina e crocante, ambiente acolhedor, jazz e músicas francesas de trilha sonora e uma curadoria de vinhos pensada para os seus momentos mais especiais.",
     primaryCta: "Reservar uma Mesa via WhatsApp",
     secondaryCta: "Conhecer a Experiência ↓",
   },
@@ -21,13 +21,13 @@ export const homeContent = {
     eyebrow: "01 — O Conceito & USP",
     heading: "O Conceito Pot. Pourri",
     body: [
-      "No Pot. Pourri, cada pizza é individual, de massa ultra fina e crocante, deliberadamente cortada em formato xadrez.",
-      "Para equilibrar perfeitamente os sabores, todas as nossas criações são precedidas por uma salada fresca da casa. Uma experiência gastronômica equilibrada, sofisticada e feita para ser apreciada sem pressa.",
+      "Na Pot.Pourri Pizzaria Boutique, a proposta é acolher o cliente, fazendo com que ele se sinta em seu lar. As pizzas, de massa fina e crocante, são sugeridas individualmente e chegam à mesa cortadas em formato xadrez.",
+      "Para equilibrar os sabores, cada pizza salgada é acompanhada de uma refrescante salada de folhas verdes. Uma experiência gastronômica equilibrada, feita para ser apreciada sem pressa.",
     ],
     highlights: [
-      { title: "Massa Ultra Fina", description: "Leveza surpreendente com crocância perfeita em cada pedaço." },
+      { title: "Massa Fina e Crocante", description: "Leveza surpreendente com crocância perfeita em cada pedaço." },
       { title: "Corte Xadrez", description: "Design autoral que facilita compartilhar e degustar cada sabor." },
-      { title: "Salada Incluída", description: "Todas as pizzas são precedidas por uma entrada fresca da casa." },
+      { title: "Mix de Folhas", description: "As pizzas salgadas são acompanhadas de uma fresca salada da casa." },
     ],
     imageAlt: "Pizza individual cortada em xadrez servida em prato cerâmico personalizado acompanhada de salada fresca",
   },
@@ -178,7 +178,7 @@ export const homeContent = {
     heading: "Garantir Sua Experiência Intimista",
     subheading: "Devido ao número limitado de mesas e clima exclusivo, recomendamos reservar com antecedência.",
     addressTitle: "Endereço & Localização",
-    street: "Rua Furriel Luiz Antonio de Vargas, 250",
+    street: "Rua Furriel Luiz Antonio de Vargas, 374",
     neighborhood: "Bela Vista — Porto Alegre / RS",
     hoursTitle: "Horários de Atendimento",
     hours: "Terça a Domingo: 19:00 às 23:30",
