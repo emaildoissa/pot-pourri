@@ -78,6 +78,14 @@ These instructions apply to all Astro theme work. Prioritize clean, reusable, ac
 * Keep internal links crawlable with real `<a href="">` links.
 * Avoid JavaScript-only navigation for normal pages.
 
+## Analytics and Conversion Tracking Guidelines
+
+* Always refer to `docs/GA4_TRACKING_PLAYBOOK.md` for standard Google Analytics 4 and conversion tracking patterns.
+* When injecting Google tag scripts with Astro's `<script is:inline define:vars={{ gaId }}>`, always assign `window.gtag = function () { window.dataLayer.push(arguments); };` explicitly to prevent the function from being scoped into an unreachable IIFE closure.
+* Ensure event listeners (such as WhatsApp clicks or form submissions) verify `if (typeof window.gtag === "function")` before firing.
+* Keep GA4 Measurement IDs centralized in `src/config/site.ts` with support for `import.meta.env.PUBLIC_GA_ID`.
+* Always test custom event tracking with real-time views and network payload inspection.
+
 ## Performance Requirements
 
 * Keep JavaScript minimal.
