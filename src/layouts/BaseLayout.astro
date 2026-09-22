@@ -86,8 +86,8 @@ const { title, description, image, structuredData, enableReveal = siteConfig.eff
         var m = href.match(/[?&]text=([^&]*)/);
         var text = m ? decodeURIComponent(m[1]) : "";
         var from = location.pathname === "/" ? "home" : location.pathname;
-        if (typeof gtag === "function") {
-          gtag("event", "clicou_whatsapp", {
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "clicou_whatsapp", {
             origem: from,
             mensagem: text,
             cta: (link.getAttribute("aria-label") || link.textContent || "").trim().slice(0, 80),

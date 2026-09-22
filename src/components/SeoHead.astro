@@ -58,11 +58,11 @@ const gaId = siteConfig.gaMeasurementId;
     <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
     <script is:inline define:vars={{ gaId }}>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
+      window.gtag = function () {
         window.dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", gaId);
+      };
+      window.gtag("js", new Date());
+      window.gtag("config", gaId);
     </script>
   </>
 )}
